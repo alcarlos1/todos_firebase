@@ -5,11 +5,11 @@ void main() {
   late Todo defaultTodo;
 
   setUp(() {
-    defaultTodo = const Todo(description: "");
+    defaultTodo = Todo(description: "", createdAt: DateTime.now());
   });
 
   test('should create a Todo', () {
-    expect(const Todo(description: ""), defaultTodo);
+    expect(defaultTodo is Todo, true);
   });
 
   test('should create a default todo with isDone to false', () {
@@ -17,7 +17,7 @@ void main() {
   });
 
   test('should create a todo with an "description" description', () {
-    const Todo myTodo = Todo(description: "description");
+    Todo myTodo = Todo(description: "description", createdAt: DateTime.now());
     expect(myTodo.description, "description");
   });
 }
